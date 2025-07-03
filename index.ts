@@ -4,18 +4,18 @@ import Logger, { LoggerInterface } from "add_logger";
 export class EventContainer extends OriginalEventContainer {
 
 
-    logger: LoggerInterface;
+    logger?: LoggerInterface;
 
     constructor(options?: { logger: LoggerInterface }) {
         super();
-        this.logger = options?.logger ?? new Logger('event_container');
+        this.logger = options?.logger;
     }
     override dispatchEvent(event: Event): void {
-        this.logger.info( "Event dispatched: ", event.type );
+        this.logger?.info( "Event dispatched: ", event.type );
 
         const handlers = super._getEventHandlers(event);
 
-        this.logger.info(
+        this.logger?.info(
             `Found ${handlers.length} handlers `, 
             handlers.map(
                 (handler) => handler.name ? handler.name : "<unnamed>"
@@ -27,6 +27,6 @@ export class EventContainer extends OriginalEventContainer {
             handlers
         );
         
-        this.logger.info(`Executed ${handlers.length} handlers`);
+        this.logger?.info(`Executed ${handlers.length} handlers`);
     }
 }
