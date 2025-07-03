@@ -7,7 +7,8 @@
     "test": "bun test"
   },
   "dependencies": {
-    "add_event_container": "albertdiones/add_event_driven#master"
+    "add_event_container": "albertdiones/add_event_driven#master",
+    "add_logger": "^0.0.34"
   },
   "devDependencies": {
     "@types/bun": "^1.1.16",
