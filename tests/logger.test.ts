@@ -30,6 +30,15 @@ test(
         const container = new EventContainer({ logger: mockLogger });
 
         const eventName = 'candles_updated';
+
+
+        container.addEventListener(
+            eventName,
+            () => {
+
+            }
+        );
+
         container.dispatchEvent(new Event(eventName))
 
         expect(logMessages.join('; ')).toContain(eventName)
