@@ -47,18 +47,28 @@ test(
             }
         );
 
+        container.addEventListener(
+            eventName,
+            () => {
+                // handler 3
+            }
+        );
+
+
         container.dispatchEvent(new Event(eventName))
 
         expect(logMessages.join('; ')).toContain(eventName);
 
         
-        expect(logMessages.join('; ')).toContain("Found 2 handlers");
+        expect(logMessages.join('; ')).toContain("Found 3 handlers");
+
+        expect(logMessages.join('; ')).toContain("<unnamed>");
 
         expect(logMessages.join('; ')).toContain("handlerx123214123376");
 
         expect(logMessages.join('; ')).toContain("handler212312321");
 
-        expect(logMessages.join('; ')).toContain("Executed 2 handlers");
+        expect(logMessages.join('; ')).toContain("Executed 3 handlers");
 
         console.log(logMessages);
     }

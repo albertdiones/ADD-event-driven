@@ -18,7 +18,7 @@ export class EventContainer extends OriginalEventContainer {
         this.logger.info(
             `Found ${handlers.length} handlers `, 
             handlers.map(
-                (handler) => handler.name
+                (handler) => handler.name ? handler.name : "<unnamed>"
             )
         );
 
