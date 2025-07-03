@@ -1,0 +1,11 @@
+{
+  "name": "add-event-driven",
+  "version": "0.0.0",
+  "description": "Event Driven Library (With Logging)",
+  "main": "index.js",
+  "scripts": {
+    "test": "bun test"
+  },
+  "author": "",
+  "license": "ISC"
+}
