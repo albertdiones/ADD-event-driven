@@ -1,12 +1,6 @@
 import { Event, EventContainer as OriginalEventContainer } from "add_event_container";
 import Logger, { LoggerInterface } from "add_logger";
 
-export interface NamedEventHandler {
-    name: string;
-    handler: (event: Event) => void;
-}
-
-
 export class EventContainer extends OriginalEventContainer {
 
 
@@ -21,14 +15,6 @@ export class EventContainer extends OriginalEventContainer {
         this._executeEventHandlers(
             event, 
             super._getEventHandlers(event)
-        );
-    }
-    override addEventListener(eventName: string, handler: NamedEventHandler): void {
-        this.handlers.push(
-            {
-                event_name: eventName, 
-                handler: handler
-            }
         );
     }
 }
