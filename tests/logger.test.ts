@@ -34,7 +34,7 @@ test(
 
         container.addEventListener(
             eventName,
-            () => {
+            function handlerx123214123376() {
                 // handler 1
             }
         );
@@ -42,7 +42,7 @@ test(
         
         container.addEventListener(
             eventName,
-            () => {
+            function handler212312321() {
                 // handler 2
             }
         );
@@ -54,6 +54,12 @@ test(
         
         expect(logMessages.join('; ')).toContain("Found 2 handlers");
 
+        expect(logMessages.join('; ')).toContain("handlerx123214123376");
+
+        expect(logMessages.join('; ')).toContain("handler212312321");
+
         expect(logMessages.join('; ')).toContain("Executed 2 handlers");
+
+        console.log(logMessages);
     }
 );

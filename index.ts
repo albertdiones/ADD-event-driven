@@ -15,7 +15,12 @@ export class EventContainer extends OriginalEventContainer {
 
         const handlers = super._getEventHandlers(event);
 
-        this.logger.info(`Found ${handlers.length} handlers`);
+        this.logger.info(
+            `Found ${handlers.length} handlers `, 
+            handlers.map(
+                (handler) => handler.name
+            )
+        );
 
         this._executeEventHandlers(
             event, 
