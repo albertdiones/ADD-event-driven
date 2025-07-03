@@ -30,8 +30,30 @@ test(
         const container = new EventContainer({ logger: mockLogger });
 
         const eventName = 'candles_updated';
+
+
+        container.addEventListener(
+            eventName,
+            () => {
+                // handler 1
+            }
+        );
+
+        
+        container.addEventListener(
+            eventName,
+            () => {
+                // handler 2
+            }
+        );
+
         container.dispatchEvent(new Event(eventName))
 
-        expect(logMessages.join('; ')).toContain(eventName)
+        expect(logMessages.join('; ')).toContain(eventName);
+
+        
+        expect(logMessages.join('; ')).toContain("Found 2 handlers");
+
+        expect(logMessages.join('; ')).toContain("Executed 2 handlers");
     }
 );

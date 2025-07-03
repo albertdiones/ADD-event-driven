@@ -12,9 +12,16 @@ export class EventContainer extends OriginalEventContainer {
     }
     override dispatchEvent(event: Event): void {
         this.logger.info( "Event dispatched: ", event.type );
+
+        const handlers = super._getEventHandlers(event);
+
+        this.logger.info(`Found ${handlers.length} handlers`);
+
         this._executeEventHandlers(
             event, 
-            super._getEventHandlers(event)
+            handlers
         );
+        
+        this.logger.info(`Executed ${handlers.length} handlers`);
     }
 }
